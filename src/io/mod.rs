@@ -1,3 +1,5 @@
+mod simple_tick_format;
+
 use std::fmt::{Display, Error, Formatter};
 use std::hash::Hash;
 use {Direction, Order, Orderbook, Side, Timestamp};
