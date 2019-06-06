@@ -2,7 +2,7 @@ mod simple_tick_format;
 
 use std::fmt::{Display, Error, Formatter};
 use std::hash::Hash;
-use {Direction, Order, Orderbook, Side, Timestamp};
+use crate::{Direction, Order, Orderbook, Side, Timestamp};
 
 pub fn parse_orderbook<S: Into<String>>(s: S) -> Orderbook<String> {
     let mut res = Orderbook::new();
@@ -31,10 +31,10 @@ pub fn parse_orderbook<S: Into<String>>(s: S) -> Orderbook<String> {
 
 impl<K: Clone + Eq + Hash> Display for Side<K> {
     fn fmt(&self, fmt: &mut Formatter) -> Result<(), Error> {
-        try!(write!(fmt, "{}\n", self.direction));
+        r#try!(write!(fmt, "{}\n", self.direction));
 
         for order in self {
-            try!(write!(fmt, "{}\t@\t{}\n", order.1.volume, order.1.price))
+            r#try!(write!(fmt, "{}\t@\t{}\n", order.1.volume, order.1.price))
         }
 
         Ok(())

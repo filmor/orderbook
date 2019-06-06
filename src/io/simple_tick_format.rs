@@ -1,4 +1,4 @@
-use Timestamp;
+use crate::Timestamp;
 
 
 struct Tick {
